@@ -27,7 +27,9 @@ class Deck:
         shuffle(self.cards)
 
     def distribute(self, players):
-        while len(self.cards) > len(players):
+        cards_per_player = len(self.cards) // len(players)
+        while not all(map(lambda x: x.number_of_cards == cards_per_player, players)):
             for player in players:
                 player.cards.append(self.cards.pop())
                 player.number_of_cards += 1
+        print(f"DECK SIZE : {len(self.cards)} CARDS")

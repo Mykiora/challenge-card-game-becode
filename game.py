@@ -28,6 +28,7 @@ class Board:
                 print(f'Turn {self.turn_count}')
                 print(f'Active cards : {self.active_cards}')
                 print(f'Number of cards in history : {len(self.history_cards)}')
+                player.turn_count += 1
             self.turn_count += 1
             
 
