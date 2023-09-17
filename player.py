@@ -1,5 +1,6 @@
 from random import randint
 
+
 class Player:
     def __init__(self, player_id: int) -> None:
         """
@@ -16,7 +17,7 @@ class Player:
         self.turn_count = 0
         self.number_of_cards = 0
         self.history = []
-    
+
     def play(self) -> str:
         """
         Manages a turn for a given player if he has cards in his hands.
@@ -33,7 +34,13 @@ class Player:
         # Takes a random card from the player's hand and adds it to its history.
         picked_card = self.cards.pop(randint(0, len(self.cards) - 1))
         self.history.append(picked_card)
-        print(f'\nPlayer {self.player_id}, during turn {self.turn_count}, played: {picked_card}')
+        print(
+            f"\nPlayer {self.player_id}, during turn {self.turn_count}, played: {picked_card}"
+        )
         return picked_card
 
-
+    def __str__(self) -> str:
+        """
+        Returns a string representation of the Player object.
+        """
+        return f"Player({self.player_id}, {self.cards}, {self.turn_count}, {self.number_of_cards}, {self.history})"
