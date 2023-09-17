@@ -45,7 +45,7 @@ class Board:
             for player in self.players:
                 # Refresh the active cards at the beginning of every turn.
                 # The len of the active cards will be equal to the number of players
-                # when is when everyone has played.
+                # when everyone has played.
                 if len(self.active_cards) == len(self.players):
                     self.active_cards = []
                 played_card = player.play()
